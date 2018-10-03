@@ -1,40 +1,23 @@
 #write your code here
 def pyramid(height) 
-    blocks = "" #this will be the amount of blocks on one side of the pyramid for the line that is being puts
-        height.times{
-            blocks = blocks+"#"   #adds one '#' each line
-            space_count = height - blocks.length   #this variable is the amount of space before the program begins printing '#'s on the line. Orginally the amount of space is equal to the maximum amount of blocks being printed within one line of the pyramid minus one, but its count decreases with each line.
-            
-            space = "" #the string that is actually the space will be reset through every loop
-            
-            #down below is the space being added to the above variable based on the amount of space (or space count) that will be needed on that line
-            
-            space_count.times{
-                space = space + " "
-            } 
-            
-            puts "#{space}#{blocks}  #{blocks}"
-        }
-end
-
-def inverse_pyramid(height)
-    block_count = height
-    spaces_count = 0
+    count = 1
     
     height.times{
-        blocks = ""
-        block_count.times{
-                blocks = blocks + "#"
-                }
-        block_count -= 1
-        
-        spaces = ""
-        spaces_count.times{
-            spaces = spaces + " "
-        }
-        spaces_count+=1
-        
-        puts "#{spaces}#{blocks}  #{blocks}"
+        blocks = "#"*count
+        spaces = " "*(height-count)
+        count += 1
+        puts spaces+blocks+"  "+blocks    
+    }
+end
+
+
+def inverse_pyramid(height)
+    count = height
+    height.times{
+        spaces = " "*(height-count)
+        blocks = "#"*count
+        count -= 1
+        puts spaces+blocks+"  "+blocks
     }
 end
 
